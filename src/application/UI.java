@@ -77,9 +77,15 @@ public class UI {
         printCapturedPieces(captured);
         IO.println();
         IO.println("Turn : " + chessMatch.getTurn());
-        IO.println("Waiting player: " + chessMatch.getCurrentPlayer());
-        if (chessMatch.isCheck()) {
-            IO.println(ANSI_RED + "CHECK!" + ANSI_RESET);
+        if (!chessMatch.isCheckMate()) {
+            IO.println("Waiting player: " + chessMatch.getCurrentPlayer());
+            if (chessMatch.isCheck()) {
+                IO.println(ANSI_RED + "CHECK!" + ANSI_RESET);
+            }
+        }
+        else {
+            IO.println(ANSI_RED + "CHECKMATE!" + ANSI_RESET);
+            IO.println("Winner: " + chessMatch.getCurrentPlayer());
         }
     }
 
