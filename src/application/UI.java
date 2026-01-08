@@ -11,7 +11,7 @@ public class UI {
             }
             IO.println();
         }
-        IO.println(" a b c d e f g h");
+        IO.println("  a b c d e f g h");
     }
 
     public static void printPiece(ChessPiece piece) {
