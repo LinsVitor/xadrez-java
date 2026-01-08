@@ -78,6 +78,9 @@ public class UI {
         IO.println();
         IO.println("Turn : " + chessMatch.getTurn());
         IO.println("Waiting player: " + chessMatch.getCurrentPlayer());
+        if (chessMatch.isCheck()) {
+            IO.println(ANSI_RED + "CHECK!" + ANSI_RESET);
+        }
     }
 
     public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
@@ -121,7 +124,7 @@ public class UI {
         IO.println();
         IO.print("BLACK: ");
         IO.print(ANSI_YELLOW);
-        IO.print(Arrays.toString(black.toArray()));
+        IO.println(Arrays.toString(black.toArray()));
         IO.print(ANSI_RESET);
     }
 }
