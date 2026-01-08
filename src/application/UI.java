@@ -28,6 +28,23 @@ public class UI {
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
+    public static void clearScreen() {
+        try {
+            final String os = System.getProperty("os.name");
+
+            if (os.contains("Windows")) {
+                // For Windows
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                // For Linux/macOS
+                new ProcessBuilder("clear").inheritIO().start().waitFor();
+            }
+        } catch (final Exception e) {
+            // Handle exceptions (e.g., if running inside an IDE that doesn't support this)
+            System.out.println("Could not clear console: " + e.getMessage());
+        }
+    }
+
     public static ChessPosition readChessPosition(Scanner sc) {
         try {
             String s = sc.nextLine().toLowerCase();
