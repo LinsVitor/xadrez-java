@@ -4,6 +4,6 @@ import boardgame.BoardException;
 
 public class ChessException extends BoardException {
     public ChessException(String message) {
-        super("\n" + message);
+        super(message);
     }
 }
